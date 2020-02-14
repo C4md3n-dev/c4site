@@ -7,7 +7,8 @@ let y = [];
 let percentages = [];
 let ptext = [];
 let btext = [];
-let income
+let income;
+let over;
 
 function setup() {
   canvas = createCanvas(200, 400);
@@ -39,17 +40,6 @@ function draw() {
   background(255);
   income = income_input.value();
   
-  // ptext[0] = text(slider[0].value(), slider[0].x, slider[0].y + 17);
-  // ptext[1] = text(slider[1].value(), slider[1].x, slider[1].y + 17);
-  // ptext[2] = text(slider[2].value(), slider[2].x, slider[2].y + 17);
-  // ptext[3] = text(slider[3].value(), slider[3].x, slider[3].y + 17);
-  // ptext[4] = text(slider[4].value(), slider[4].x, slider[4].y + 17);
-  // ptext[5] = text(slider[5].value(), slider[5].x, slider[5].y + 17);
-  // ptext[6] = text(slider[6].value(), slider[6].x, slider[6].y + 17);
-  // ptext[7] = text(slider[7].value(), slider[7].x, slider[7].y + 17);
-  // ptext[8] = text(slider[8].value(), slider[8].x, slider[8].y + 17);
-  // ptext[9] = text(slider[9].value(), slider[9].x, slider[9].y + 17);
-  
   btext[0] = income * slider[0].value();
   btext[1] = income * slider[1].value();
   btext[2] = income * slider[2].value();
@@ -62,4 +52,15 @@ function draw() {
   btext[9] = income * slider[9].value();
   
   finaltext = text(btext[0], canvas.width / 2, canvas.height - 390) && text(btext[1], canvas.width / 2, canvas.height - 370) && text(btext[2], canvas.width / 2, canvas.height - 350) &&   text(btext[3], canvas.width / 2, canvas.height - 330) && text(btext[4], canvas.width / 2, canvas.height - 310) && text(btext[5], canvas.width / 2, canvas.height - 290) && text(btext[6], canvas.width / 2, canvas.height - 270) && text(btext[7], canvas.width / 2, canvas.height - 250) && text(btext[8], canvas.width / 2, canvas.height - 230) && text(btext[9], canvas.width / 2, canvas.height - 210)
+
+  total = btext[0] + btext[1] + btext[2] + btext[3] + btext[4] + btext[5] + btext[6] + btext[7] + btext[8] + btext[9];
+  
+  totaltext = text("Total: " + total, canvas.width / 2 - 20, canvas.height - 170);
+  text(over, canvas.width / 2 - 40, canvas. height - 150)
+  
+  if (total > income) {
+    over = "OVER BUDGET!!!"
+  } else if (total <= income) {
+    over = ""
+  }
 }
